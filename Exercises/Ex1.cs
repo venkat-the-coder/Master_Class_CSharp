@@ -228,6 +228,13 @@ namespace Section_2.Exercises
         }
 
 
+        string Revision(string str) => str switch
+        {
+            "a" => "it is string",
+            "b" => "it is string"
+        }; 
+
+
         private void SimpleWhileLoop()
         {
             int number = 0;
@@ -319,13 +326,82 @@ namespace Section_2.Exercises
             while (!isUserExit);
         }
 
+
+        public static void Factorial()
+        {
+            Console.WriteLine("Enter number to find fact:");
+            int num = int.Parse(Console.ReadLine());
+
+            if (num == 0)
+            {
+                Console.WriteLine($"{0!} is 1");
+                return;
+            }
+
+            int fact = 1;
+
+            for (int i = 1; i <= num; i++)
+            {
+                fact *= i;
+            }
+            Console.WriteLine($"factorial of {num} is {fact}");
+        }
+
+
+        private static void CheckDigit()
+        {
+            Console.WriteLine("Enter the string");
+            string number = Console.ReadLine();
+
+            if(!string.IsNullOrEmpty(number) && number.All(char.IsDigit))
+            {
+                int num = int.Parse(number);    
+            }
+
+        }
+
+        // nested loops
+        private static void NestedForLoop()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.WriteLine($"{i}{j}");
+                }
+            }
+        }
+
+        // arrays
+        private static void ArrayOps()
+        {
+            int[] arr = new int[10];
+            int[] arr2 = new int[] { 1, 2, 3, 4, 5 };
+
+
+            Console.WriteLine("last element at arr 1", arr[^1]);
+            Console.WriteLine("last second element at arr 2", arr[^2]);
+
+            for(int i = 0;i < arr2.Length;i++)
+            {
+                Console.WriteLine(arr2[i]);
+            }
+
+            for (int i = 0; i < arr2.Length; i++) //reverse array
+            {
+                Console.WriteLine(arr2[^i]);
+            }
+        }
+
+
         static void Main(string[] args)
         {
             // Console.WriteLine(VariablesAndOperators());
             // isSumLargerOrEqualTo17();
             //Calc();
             //CalculateSumOfNumbers();
-            LengthOfRepeatedCharc();
+            //LengthOfRepeatedCharc();
+            Factorial();
             Console.ReadKey();
         }
 
