@@ -203,7 +203,7 @@ namespace Section_2.Exercises
         // Console.WriteLine(DescribeObject(true));      // Output: It's a boolean: True
 
         /* Property Pattern Matching (Matching Object Properties) */
-       
+
 
         string GetDiscount(Person person) => person switch
         {
@@ -234,14 +234,14 @@ namespace Section_2.Exercises
         {
             "a" => "it is string",
             "b" => "it is string"
-        }; 
+        };
 
 
         private void SimpleWhileLoop()
         {
             int number = 0;
 
-            while(number < 10)
+            while (number < 10)
             {
                 number++;
                 Console.WriteLine(number);
@@ -310,7 +310,7 @@ namespace Section_2.Exercises
                 string c = Console.ReadLine();
                 Console.WriteLine("Enter Number of times to repeate");
                 int r = int.Parse(Console.ReadLine());
-                letter = c; 
+                letter = c;
 
                 for (int i = 1; i < r; i++)
                 {
@@ -355,9 +355,9 @@ namespace Section_2.Exercises
             Console.WriteLine("Enter the string");
             string number = Console.ReadLine();
 
-            if(!string.IsNullOrEmpty(number) && number.All(char.IsDigit))
+            if (!string.IsNullOrEmpty(number) && number.All(char.IsDigit))
             {
-                int num = int.Parse(number);    
+                int num = int.Parse(number);
             }
 
         }
@@ -384,7 +384,7 @@ namespace Section_2.Exercises
             Console.WriteLine("last element at arr 1", arr[^1]);
             Console.WriteLine("last second element at arr 2", arr[^2]);
 
-            for(int i = 0;i < arr2.Length;i++)
+            for (int i = 0; i < arr2.Length; i++)
             {
                 Console.WriteLine(arr2[i]);
             }
@@ -426,20 +426,21 @@ namespace Section_2.Exercises
             Console.WriteLine("Enter the word to find");
             string wordToFind = Console.ReadLine();
 
-            bool isWordFInd = false;    
+            bool isWordFInd = false;
 
 
             for (int i = 0; i < words.Length; i++)
             {
                 if (words[i].Trim().ToLower() == wordToFind?.Trim().ToLower())
                 {
-                    isWordFInd = true;  
+                    isWordFInd = true;
                     Console.WriteLine($"Yes the word {wordToFind} found in index {i}");
                     break;
                 }
             }
 
-            if (!isWordFInd) {
+            if (!isWordFInd)
+            {
                 Console.WriteLine("Word Not Found");
             }
 
@@ -454,18 +455,18 @@ namespace Section_2.Exercises
 
             int max = 0;
 
-            if(dim.GetLength(0) <= 0)
+            if (dim.GetLength(0) <= 0)
             {
                 return;
             }
 
-            for(int i = 0; i < dim.GetLength(0);i++)
+            for (int i = 0; i < dim.GetLength(0); i++)
             {
-                for (int j = 0; j < dim.GetLength(1);j++)
+                for (int j = 0; j < dim.GetLength(1); j++)
                 {
-                    if (dim[i,j] > max)
+                    if (dim[i, j] > max)
                     {
-                        max = dim[i,j];
+                        max = dim[i, j];
                     }
                 }
             }
@@ -561,7 +562,7 @@ namespace Section_2.Exercises
         }
 
 
-        
+
         public static List<int> ReturnPostiveInt(int[] num, out int nonPosCount)
         {
             nonPosCount = 0;
@@ -581,6 +582,22 @@ namespace Section_2.Exercises
 
             return result;
         }
+
+        public static void TryPraseMethod()
+        {
+            Console.WriteLine("Enter a number ");
+
+            bool isPaarseSuccess = int.TryParse(Console.ReadLine(), out int number);
+
+            if (isPaarseSuccess)
+            {
+                Console.WriteLine("Parse Successfull!!");
+                return;
+            }
+
+            Console.WriteLine("Parse not suceefull!!");
+        }
+
 
 
 
@@ -611,6 +628,8 @@ namespace Section_2.Exercises
             //AnyWordLongr();
             Console.ReadKey();
         }
+
+
 
     }
 }
