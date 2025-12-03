@@ -561,6 +561,28 @@ namespace Section_2.Exercises
         }
 
 
+        
+        public static List<int> ReturnPostiveInt(int[] num, out int nonPosCount)
+        {
+            nonPosCount = 0;
+            List<int> result = new List<int>();
+
+            for (int i = 0; i < num.Length; i++)
+            {
+                if (num[i] > 0)
+                {
+                    result.Add(num[i]);
+                }
+                else
+                {
+                    nonPosCount++;
+                }
+            }
+
+            return result;
+        }
+
+
 
 
         static void Main(string[] args)
@@ -575,8 +597,17 @@ namespace Section_2.Exercises
             //FindWordInWords();
             //FindMaxinArray();
             //ListOperations();
-            GetUpperCaseLetter();
+            //GetUpperCaseLetter();
 
+
+            var num = new[] { 2, -3, 4, 5, 6, 7, -8, 9, -10 };
+            int nonPosCount;
+            var posDigits = ReturnPostiveInt(num, out nonPosCount);
+            foreach (var digit in posDigits)
+            {
+                Console.WriteLine(digit);
+            }
+            Console.WriteLine($"Non postivi count {nonPosCount}");
             //AnyWordLongr();
             Console.ReadKey();
         }
