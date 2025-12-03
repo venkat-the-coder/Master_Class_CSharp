@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -475,7 +476,7 @@ namespace Section_2.Exercises
         {
             string[] collection = { "Words", "Manager", "five" };
 
-            string[] words = new string[Array.MaxLength];
+            string[] words = [];
 
             int i = 4;
 
@@ -483,13 +484,79 @@ namespace Section_2.Exercises
             {
                 if (str.Length > i)
                 {
-                    words.Append(str);
+                    words = words.Append(str).ToArray();
                 }
             }
             Console.WriteLine("thise are words greater than given length");
             foreach (string word in words)
             {
                 Console.WriteLine(word);
+            }
+        }
+
+        // list operations
+        public static void ListOperations()
+        {
+            List<int> num = new List<int>() { 1, 2, 3, 4 };
+
+            var arr = new[] { 3, 5, 6, 7 };
+            num.AddRange(arr);
+            Console.WriteLine("original list");
+
+            foreach (int i in num)
+            {
+                Console.WriteLine(i);
+            }
+
+            var eveList = new List<int>();
+
+            Console.WriteLine("ODD List");
+
+            foreach (int i in num)
+            {
+                if (i % 2 == 0)
+                {
+                    eveList.Add(i);
+                    continue;
+                }
+                Console.WriteLine(i);
+            }
+
+            Console.WriteLine("even list");
+            foreach (int i in eveList)
+            { Console.WriteLine(i); }
+
+            Console.WriteLine("clearing list");
+            num.Clear();
+            Console.WriteLine($"cleared list {num.Count}");
+
+        }
+
+
+        public static void GetUpperCaseLetter()
+        {
+            List<string> letters = new List<string>() { "MAIN", "Upper", "LOWER", "IDION", "luthiana" };
+
+            var upperCaseLetters = new List<string>();
+
+            foreach (var str in letters)
+            {
+                if (str.Any(char.IsSymbol) || str.Any(char.IsPunctuation) || str.Any(char.IsDigit))
+                {
+                    continue;
+                }
+                else if (str.All(char.IsUpper))
+                {
+                    upperCaseLetters.Add(str); ;
+                }
+            }
+
+            Console.WriteLine("UpperCase Letters are below");
+            Console.WriteLine();
+
+            foreach (var str in upperCaseLetters)
+            {
+                Console.WriteLine(str);
             }
         }
 
@@ -507,8 +574,10 @@ namespace Section_2.Exercises
             //BuildHeeloString();
             //FindWordInWords();
             //FindMaxinArray();
+            //ListOperations();
+            GetUpperCaseLetter();
 
-            AnyWordLongr();
+            //AnyWordLongr();
             Console.ReadKey();
         }
 
