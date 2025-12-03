@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace Section_2.Exercises
 {
@@ -393,6 +394,107 @@ namespace Section_2.Exercises
             }
         }
 
+        //build hello string
+        public static void BuildHeeloString()
+        {
+            char[] c = new[] { 'h', 'e', 'l', 'l', 'o' };
+
+            string builtString = string.Empty;
+
+            for (int i = 0; i < c.Length; i++)
+            {
+                builtString += c[i];
+            }
+
+            Console.WriteLine(builtString);
+        }
+
+        // is word present in collection
+
+        public static void FindWordInWords()
+        {
+            Console.WriteLine($"Enter words seperated by comma");
+            string word = Console.ReadLine();
+            string[] words = [];
+            if (!string.IsNullOrEmpty(word))
+            {
+                words = word.Split(",", StringSplitOptions.RemoveEmptyEntries);
+            }
+
+
+            Console.WriteLine("Enter the word to find");
+            string wordToFind = Console.ReadLine();
+
+            bool isWordFInd = false;    
+
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (words[i].Trim().ToLower() == wordToFind?.Trim().ToLower())
+                {
+                    isWordFInd = true;  
+                    Console.WriteLine($"Yes the word {wordToFind} found in index {i}");
+                    break;
+                }
+            }
+
+            if (!isWordFInd) {
+                Console.WriteLine("Word Not Found");
+            }
+
+            Console.WriteLine("Loop terminated");
+
+        }
+        //multi dimensional array
+
+        public static void FindMaxinArray()
+        {
+            int[,] dim = new[,] { { 100, 3, 4 }, { 10, 44, 5 } };
+
+            int max = 0;
+
+            if(dim.GetLength(0) <= 0)
+            {
+                return;
+            }
+
+            for(int i = 0; i < dim.GetLength(0);i++)
+            {
+                for (int j = 0; j < dim.GetLength(1);j++)
+                {
+                    if (dim[i,j] > max)
+                    {
+                        max = dim[i,j];
+                    }
+                }
+            }
+            Console.WriteLine($"Max number in Array is {max}");
+        }
+
+        public static void AnyWordLongr()
+        {
+            string[] collection = { "Words", "Manager", "five" };
+
+            string[] words = new string[Array.MaxLength];
+
+            int i = 4;
+
+            foreach (string str in collection)
+            {
+                if (str.Length > i)
+                {
+                    words.Append(str);
+                }
+            }
+            Console.WriteLine("thise are words greater than given length");
+            foreach (string word in words)
+            {
+                Console.WriteLine(word);
+            }
+        }
+
+
+
 
         static void Main(string[] args)
         {
@@ -401,7 +503,12 @@ namespace Section_2.Exercises
             //Calc();
             //CalculateSumOfNumbers();
             //LengthOfRepeatedCharc();
-            Factorial();
+            //Factorial();
+            //BuildHeeloString();
+            //FindWordInWords();
+            //FindMaxinArray();
+
+            AnyWordLongr();
             Console.ReadKey();
         }
 
