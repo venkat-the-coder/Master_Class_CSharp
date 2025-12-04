@@ -10,12 +10,15 @@
             bool isUserExit = false;
             do
             {
+                Console.WriteLine();
                 Console.WriteLine("Heelo!");
                 Console.WriteLine("What to do?");
                 Console.WriteLine("[S]ee all TODOs");
                 Console.WriteLine("[A]dd a TODO's");
                 Console.WriteLine("[R]emove a TODO's");
                 Console.WriteLine("[E]xit");
+                Console.WriteLine();
+                Console.WriteLine();
 
                 string userSelectedOption = Console.ReadLine();
 

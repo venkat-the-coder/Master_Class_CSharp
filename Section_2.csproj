@@ -5,7 +5,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>Section_2.Exercises.Ex1</StartupObject>
+    <StartupObject>FirstProgram.Program</StartupObject>
   </PropertyGroup>
 
 </Project>
